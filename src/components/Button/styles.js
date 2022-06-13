@@ -8,7 +8,7 @@ export const Container = styled.button`
   border: none;
   border-radius: 10px;
 
-  color: #312e38;
+  color: ${({ theme }) => theme.COLORS.GRAY_500};
   background-color: ${({ theme }) => theme.COLORS.PINK};
 
   font-size: 16px;
