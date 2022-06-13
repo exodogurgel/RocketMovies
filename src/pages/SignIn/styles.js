@@ -1,8 +1,12 @@
 import styled from 'styled-components'
+import backgroundImg from '../../assets/background.png'
 
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
+
+  display: flex;
+  align-items: stretch;
 `
 
 export const Form = styled.form`
@@ -29,4 +33,15 @@ export const Form = styled.form`
     font-size: 24px;
     margin-block: 48px;
   }
+
+  > a {
+    color: ${({ theme }) => theme.COLORS.PINK};
+    text-align: center;
+    margin-top: 42px;
+  }
+`
+export const Background = styled.div`
+  background: url(${backgroundImg}) no-repeat center center;
+  background-size: cover;
+  flex: 1;
 `
