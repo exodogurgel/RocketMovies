@@ -1,16 +1,14 @@
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { Container, Form, Avatar } from './styles';
+import { ButtonText } from '../../components/ButtonText';
 import { FiArrowLeft, FiCamera, FiUser, FiMail, FiLock } from 'react-icons/fi';
 
 export function Profile(){
   return (
     <Container>
       <header>
-        <a href="#">
-          <FiArrowLeft />
-          Voltar
-        </a>
+        <ButtonText icon={FiArrowLeft} title="Voltar"/>
       </header>
       <Form>
         <Avatar>

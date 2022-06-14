@@ -11,18 +11,7 @@ export const Container = styled.div`
 
     display: flex;
     align-items: center;
-
-    a {
-      padding-left: 144px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-
-      font-size: 16px;
-
-      color: ${({ theme }) => theme.COLORS.PINK};
-    }
+    padding-left: 144px;
   }
 `
 export const Form = styled.form`
