@@ -6,6 +6,7 @@ export default {
     BACKGROUND_HEADER: 'hsla(349, 100%, 76%, 0.05)',
 
     WHITE: '#F4EDE8',
+    TAG_BG: '#282124',
 
     GRAY_500: '#312E38',
     GRAY_300: '#948F99',
