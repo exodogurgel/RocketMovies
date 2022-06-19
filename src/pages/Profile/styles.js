@@ -31,6 +31,10 @@ export const Form = styled.form`
   align-items: center;
 
   margin: 0 auto;
+
+  > div:nth-child(4) {
+    margin-top: 16px;
+  }
 `
 
 export const Avatar = styled.div`

@@ -38,7 +38,7 @@ export const Form = styled.form`
   width: 100%;
   height: 500px;
   overflow-y: auto;
-  padding-right: 10px;
+  padding-inline: 10px;
 
   display: flex;
   flex-direction: column;
