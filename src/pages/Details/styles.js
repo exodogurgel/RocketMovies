@@ -11,15 +11,24 @@ export const Container = styled.div`
 
   > main {
     grid-area: content;
+    overflow-y: auto;
 
     padding: 0 123px;
-    // width: 1137px;
     height: 500px;
     margin: 40px auto 0;
   }
 `
 
 export const Content = styled.div`
+  a {
+    color: ${({ theme }) => theme.COLORS.PINK};
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   width: 100%;
   height: 100%;
   overflow-y: auto;

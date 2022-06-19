@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
 import { Input } from '../../components/Input'
 import { Header } from '../../components/Header'
@@ -15,7 +16,10 @@ export function NewMovie() {
       <main>
         <Form>
           <header>
-            <ButtonText title="Voltar" icon={FiArrowLeft} />
+            <Link to="/">
+              <FiArrowLeft />
+              Voltar
+            </Link>
             <h1>Novo filme</h1>
           </header>
 

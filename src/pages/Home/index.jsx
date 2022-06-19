@@ -11,7 +11,7 @@ export function Home() {
       <section>
         <header>
           <h1>Meus filmes</h1>
-          <ButtonAdd>
+          <ButtonAdd to="/new">
             <FiPlus />
             Adicionar filme
           </ButtonAdd>
@@ -19,6 +19,7 @@ export function Home() {
 
         <main>
           <MovieCard
+            to="/details/22"
             data={{
               title: 'Interestellar',
               rating: 4,
@@ -33,6 +34,7 @@ export function Home() {
           />
 
           <MovieCard
+            to="/details/23"
             data={{
               title: 'Interestellar',
               rating: 4,
@@ -47,6 +49,7 @@ export function Home() {
           />
 
           <MovieCard
+            to="/details/22"
             data={{
               title: 'Interestellar',
               rating: 4,

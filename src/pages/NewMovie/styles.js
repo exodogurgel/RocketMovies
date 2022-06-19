@@ -13,6 +13,7 @@ export const Container = styled.div`
   > main {
     padding: 40px 123px;
     grid-area: content;
+    overflow-y: auto;
 
     .input-values {
       display: flex;
@@ -48,6 +49,15 @@ export const Form = styled.form`
       margin-top: 24px;
       font-size: 36px;
       font-weight: 500;
+    }
+
+    a {
+      color: ${({ theme }) => theme.COLORS.PINK};
+      font-size: 16px;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
   }
 
