@@ -8,6 +8,7 @@ export default {
     WHITE: '#F4EDE8',
     TAG_BG: '#282124',
     TAG_BG_2: '#312E38',
+    NEW_TAG: '#262529',
 
     GRAY_500: '#312E38',
     GRAY_300: '#948F99',
