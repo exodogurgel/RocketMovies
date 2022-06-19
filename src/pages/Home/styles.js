@@ -11,7 +11,9 @@ export const Container = styled.div`
 
   > section {
     grid-area: content;
-    padding: 50px 123px 37px;
+    padding: 50px 123px 0;
+
+    overflow: auto;
 
     header {
       display: flex;
@@ -21,6 +23,17 @@ export const Container = styled.div`
         font-size: 32px;
         font-weight: 400;
       }
+    }
+
+    > main {
+      width: 100%;
+      height: 470px;
+      margin-top: 37px;
+      overflow-y: auto;
+
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
   }
 `

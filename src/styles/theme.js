@@ -7,11 +7,15 @@ export default {
 
     WHITE: '#F4EDE8',
     TAG_BG: '#282124',
+    TAG_BG_2: '#312E38',
 
     GRAY_500: '#312E38',
     GRAY_300: '#948F99',
     GRAY_100: '#CAC4CF',
+    GRAY_PARAGRAPH: '#999591',
 
     PINK: '#FF859B'
   }
 }
+
+/**/
