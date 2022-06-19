@@ -11,6 +11,9 @@ export const Container = styled.div`
     'content';
 
   > main {
+    padding: 40px 123px;
+    grid-area: content;
+
     .input-values {
       display: flex;
       gap: 40px;
@@ -31,8 +34,10 @@ export const Container = styled.div`
 `
 
 export const Form = styled.form`
-  grid-area: content;
-  padding: 40px 123px;
+  width: 100%;
+  height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
 
   display: flex;
   flex-direction: column;
@@ -45,4 +50,23 @@ export const Form = styled.form`
       font-weight: 500;
     }
   }
+
+  .buttons {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: -16px;
+    margin-bottom: 5px;
+  }
+`
+export const RemoveMovie = styled.button`
+  margin-top: 16px;
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 10px;
+  background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+  color: ${({ theme }) => theme.COLORS.PINK};
+  font-size: 16px;
 `
