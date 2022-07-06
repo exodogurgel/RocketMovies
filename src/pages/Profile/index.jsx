@@ -7,6 +7,9 @@ import { useState } from 'react';
 
 import { useAuth } from '../../hooks/auth';
 
+import { api } from '../../services/api';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
+
 export function Profile() {
   const { user, updateProfile } = useAuth();
 
@@ -15,14 +18,27 @@ export function Profile() {
   const [passwordOld, setPasswordOld] = useState();
   const [passwordNew, setPasswordNew] = useState();
 
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+  const [avatar, setAvatar] = useState(avatarUrl);
+  const [avatarFile, setAvatarFile] = useState(null);
+
   async function handleUpdate() {
-    const user = {
+    const updated = {
       name,
       email,
       old_password: passwordOld,
       password: passwordNew,
     }
-    await updateProfile({ user })
+    const userUpdated = Object.assign(user, updated);
+    await updateProfile({ user: userUpdated, avatarFile });
+  }
+
+  function handleChangeAvatar(event) {
+    const file = event.target.files[0]
+    setAvatarFile(file)
+
+    const imagePreview = URL.createObjectURL(file);
+    setAvatar(imagePreview);
   }
 
   return (
@@ -35,10 +51,18 @@ export function Profile() {
       </header>
       <Form>
         <Avatar>
-          <img src="https://github.com/exodogurgel.png" alt="Foto do Usuário" />
+          <img 
+            src={avatar} 
+            alt="Foto do Usuário" 
+          />
+
           <label htmlFor="avatar">
             <FiCamera />
-            <input type="file" id="avatar" />
+            <input 
+              type="file" 
+              id="avatar"
+              onChange={handleChangeAvatar} 
+            />
           </label>
         </Avatar>
 

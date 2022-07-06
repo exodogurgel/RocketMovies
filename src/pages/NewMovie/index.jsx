@@ -25,7 +25,7 @@ export function NewMovie() {
 
           <div className="input-values">
             <Input type="text" placeholder="Titulo" />
-            <Input type="number" placeholder="Sua nota (de 0 a 5)" />
+            <Input type="number" placeholder="Sua nota (de 0 a 5)" min="0" max="5"/>
           </div>
 
           <Textarea placeholder="Observações" />
