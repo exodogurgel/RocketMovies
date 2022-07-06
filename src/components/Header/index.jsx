@@ -1,17 +1,23 @@
-import { Container, Profile, Logout } from './styles'
-import { Input } from '../../components/Input'
+import { Container, Profile, Logout, Avatar } from './styles';
+import { Input } from '../../components/Input';
+
+import { useAuth } from '../../hooks/auth';
 
 export function Header() {
+  const { signOut } = useAuth();
+
   return (
     <Container>
       <h2>RocketMovies</h2>
       <Input type="text" placeholder="Pesquisar pelo título" />
-      <Profile to="/profile">
+      <Profile>
         <div>
           <strong>Êxodo Gurgel</strong>
-          <Logout>sair</Logout>
+          <Logout onClick={signOut}>sair</Logout>
         </div>
-        <img src="https://github.com/exodogurgel.png" alt="Foto do Usuário" />
+        <Avatar to="/profile">
+          <img src="https://github.com/exodogurgel.png" alt="Foto do Usuário" />
+        </Avatar>
       </Profile>
     </Container>
   )

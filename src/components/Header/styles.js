@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
   padding: 0 123px;
@@ -19,7 +19,7 @@ export const Container = styled.header`
 
   grid-area: header;
 `
-export const Profile = styled(Link)`
+export const Profile = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -37,7 +37,8 @@ export const Profile = styled(Link)`
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
   }
-
+`
+export const Avatar = styled(Link)`
   > img {
     height: 64px;
     width: 64px;
