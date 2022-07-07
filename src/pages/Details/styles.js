@@ -15,7 +15,7 @@ export const Container = styled.div`
 
     padding: 0 123px;
     height: 500px;
-    margin: 40px auto 0;
+    margin-top: 40px;
   }
 `
 
@@ -75,8 +75,4 @@ export const Tags = styled.div`
 export const Description = styled.div`
   text-align: justify;
   line-height: 21px;
-
-  p:nth-child(1) {
-    margin-bottom: 21px;
-  }
 `
