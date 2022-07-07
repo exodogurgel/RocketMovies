@@ -29,6 +29,11 @@ export const Content = styled.div`
     gap: 8px;
   }
 
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
   width: 100%;
   height: 100%;
   overflow-y: auto;
