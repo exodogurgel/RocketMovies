@@ -1,67 +1,67 @@
-import { Container, ButtonAdd } from './styles'
+import { Container, ButtonAdd, Profile, Logout, Avatar } from './styles'
+import { Input } from '../../components/Input';
 import { FiPlus } from 'react-icons/fi'
-import { Header } from '../../components/Header'
 import { MovieCard } from '../../components/MovieCard'
-import {} from '../../components/Header'
+import { useState, useEffect } from 'react';
+import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/api';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 export function Home() {
+  const { signOut, user } = useAuth();
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function fetchMovieNotes() {
+      const response = await api.get(`/movie_notes?title=${search}`);
+      setMovies(response.data);
+    }
+
+    fetchMovieNotes()
+  }, [search])
+
   return (
     <Container>
-      <Header />
+      <header>
+        <h2>RocketMovies</h2>
+        <Input 
+          type="text" 
+          placeholder="Pesquisar pelo título" 
+          onChange={e => setSearch(e.target.value)}
+          />
+        <Profile>
+          <div>
+            <strong>{user.name}</strong>
+            <Logout onClick={signOut}>sair</Logout>
+          </div>
+          <Avatar to="/profile">
+            <img src={avatarUrl} alt="Foto do Usuário" />
+          </Avatar>
+        </Profile>
+      </header>
+
       <section>
-        <header>
+        <div>
           <h1>Meus filmes</h1>
           <ButtonAdd to="/new">
             <FiPlus />
             Adicionar filme
           </ButtonAdd>
-        </header>
+        </div>
 
         <main>
-          <MovieCard
-            to="/details/22"
-            data={{
-              title: 'Interestellar',
-              rating: 4,
-              description:
-                'Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se...',
-              tags: [
-                { id: '1', name: 'Ficção Cientifica' },
-                { id: '2', name: 'Drama' },
-                { id: '3', name: 'Familia' }
-              ]
-            }}
-          />
+          {
+            movies.map(movie => (
+              <MovieCard
+                key={String(movie.id)} 
+                data={movie}
+              />
+            ))
+          }
 
-          <MovieCard
-            to="/details/23"
-            data={{
-              title: 'Interestellar',
-              rating: 4,
-              description:
-                'Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se...',
-              tags: [
-                { id: '1', name: 'Ficção Cientifica' },
-                { id: '2', name: 'Drama' },
-                { id: '3', name: 'Familia' }
-              ]
-            }}
-          />
-
-          <MovieCard
-            to="/details/22"
-            data={{
-              title: 'Interestellar',
-              rating: 4,
-              description:
-                'Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se...',
-              tags: [
-                { id: '1', name: 'Ficção Cientifica' },
-                { id: '2', name: 'Drama' },
-                { id: '3', name: 'Familia' }
-              ]
-            }}
-          />
         </main>
       </section>
     </Container>
