@@ -15,6 +15,7 @@ export function NewMovie() {
   const [title, setTitle] = useState("")
   const [rating, setRating] = useState()
   const [description, setDescription] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
@@ -46,6 +47,8 @@ export function NewMovie() {
     if (newTag) {
       return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio");
     }
+
+    setLoading(true);
 
     await api.post("/movie_notes", {
       title,
@@ -118,7 +121,8 @@ export function NewMovie() {
           <div className="buttons">
             <RemoveMovie type="button">Excluir filme</RemoveMovie>
             <Button 
-              title="Salvar alterações"
+              disabled={loading}
+              title={loading ? "Salvando..." :"Salvar Filme"}
               onClick={handleNewMovieNote} 
             />
           </div>

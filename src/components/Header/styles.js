@@ -26,7 +26,7 @@ export const Profile = styled.div`
   gap: 10px;
 
   > div {
-    width: 125px;
+    width: max-content;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

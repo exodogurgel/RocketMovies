@@ -20,6 +20,8 @@ export const Container = styled.button`
     color: ${({ theme }) => theme.COLORS.GRAY_PARAGRAPH};
     font-size: 16px;
     text-align: justify;
+    max-height: 40px;
+    overflow: hidden;
   }
 
   > footer {

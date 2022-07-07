@@ -10,10 +10,13 @@ export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { signIn } = useAuth();
+  const { signIn, loading } = useAuth();
 
   function handleSignIn() {
-    signIn({ email, password })
+    if (email, password) {
+      signIn({ email, password })
+      setLoading(true);
+    }
   }
 
   return (
@@ -38,7 +41,8 @@ export function SignIn() {
         />
         
         <Button
-          title="Entrar"
+          disabled={loading}
+          title={loading ? 'Carregando...' : 'Entrar'}
           onClick={handleSignIn} 
         />
 

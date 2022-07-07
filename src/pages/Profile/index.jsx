@@ -11,7 +11,7 @@ import { api } from '../../services/api';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 export function Profile() {
-  const { user, updateProfile } = useAuth();
+  const { user, updateProfile, loading } = useAuth();
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -97,7 +97,8 @@ export function Profile() {
         />
 
         <Button
-          title="Salvar"
+          disabled={loading}
+          title={loading ? "Salvando..." : "Salvar"}
           onClick={handleUpdate}
         />
       </Form>
