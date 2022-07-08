@@ -24,6 +24,11 @@ export const Form = styled.form`
     line-height: 63px;
   }
 
+  @media (max-width: 600px) {
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+
   > p {
     font-size: 14px;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
@@ -44,4 +49,8 @@ export const Background = styled.div`
   background: url(${backgroundImg}) no-repeat center center;
   background-size: cover;
   flex: 1;
+
+  @media (max-width: 600px) {
+    flex: 0;
+  }
 `
