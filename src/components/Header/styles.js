@@ -45,7 +45,7 @@ export const Avatar = styled(Link)`
     border-radius: 50%;
   }
 `
-export const Logout = styled.button`
+export const Logout = styled(Link)`
   background: none;
   border: none;
   width: fit-content;

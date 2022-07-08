@@ -66,7 +66,7 @@ function AuthProvider({ children }) {
     localStorage.removeItem("@rocketmovies:user");
     localStorage.removeItem("@rocketmovies:token");
 
-    setData({})
+    setData({});
     setLoading(false);
   }
 
@@ -88,6 +88,7 @@ function AuthProvider({ children }) {
     <AuthContext.Provider value={{ 
       signIn,
       loading,
+      setLoading,
       signOut, 
       updateProfile,
       user: data.user 

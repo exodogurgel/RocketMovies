@@ -10,7 +10,7 @@ export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { signIn, loading } = useAuth();
+  const { signIn, loading, setLoading } = useAuth();
 
   function handleSignIn() {
     if (email, password) {

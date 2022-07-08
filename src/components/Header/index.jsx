@@ -21,7 +21,7 @@ export function Header() {
       <Profile>
         <div>
           <strong>{user.name}</strong>
-          <Logout onClick={signOut}>sair</Logout>
+          <Logout to="/" onClick={signOut}>sair</Logout>
         </div>
         <Avatar to="/profile">
           <img src={avatarUrl} alt="Foto do Usuário" />
