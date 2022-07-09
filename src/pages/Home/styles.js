@@ -16,7 +16,15 @@ export const Container = styled.div`
   > h2 {
     font-size: 24px;
     color: ${({ theme }) => theme.COLORS.PINK};
+    order: -1;
   }
+
+  @media (max-width: 880px) {
+    padding: 0 40px;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
 
   grid-area: header;
   }
@@ -54,7 +62,15 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       gap: 24px;
+
+      @media (max-width: 880px) {
+        height: max-content;
+      }
     }
+
+    @media (max-width: 880px) {
+    padding: 50px 40px 0;
+  }
   }
 `
 
@@ -92,6 +108,10 @@ export const Profile = styled.div`
       line-height: 18px;
       color: ${({ theme }) => theme.COLORS.WHITE};
     }
+  }
+
+  @media (max-width: 880px) {
+    order: -1;
   }
 `
 export const Avatar = styled(Link)`
