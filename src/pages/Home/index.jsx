@@ -46,7 +46,7 @@ export function Home() {
             <Logout onClick={signOut}>sair</Logout>
           </div>
           <Avatar to="/profile">
-            <img src={avatarUrl} alt="Foto do Usuário" />
+            <img src={avatarUrl} alt={`Foto de ${user.name}`} />
           </Avatar>
         </Profile>
       </header>
