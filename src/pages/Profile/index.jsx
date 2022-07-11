@@ -11,7 +11,7 @@ import { api } from '../../services/api';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 export function Profile() {
-  const { user, updateProfile,} = useAuth();
+  const { user, updateProfile} = useAuth();
   const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState(user.name);
