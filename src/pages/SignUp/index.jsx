@@ -11,6 +11,7 @@ export function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -18,17 +19,21 @@ export function SignUp() {
     if (!name || !email || !password) {
       return alert("Preencha todos os campos");
     }
+    setLoading(true);
 
     api.post("users", {name, email, password})
       .then(() => {
         alert("Usuário cadastrado com sucesso!");
         navigate("/")
+        setLoading(false);
       })
       .catch(error => {
         if (error.response) {
           alert(error.response.data.message);
+          setLoading(false);
         } else {
           alert("Não foi possível cadastrar");
+          setLoading(false);
         }
       })
   }
@@ -61,7 +66,8 @@ export function SignUp() {
         />
         
         <Button
-          title="Cadastrar"
+          disabled={loading}
+          title={loading ? 'Cadastrando...' : 'Cadastrar'}
           onClick={handleSignUp}
         />
 
