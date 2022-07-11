@@ -11,7 +11,8 @@ import { api } from '../../services/api';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 export function Profile() {
-  const { user, updateProfile, loading } = useAuth();
+  const { user, updateProfile,} = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -29,8 +30,10 @@ export function Profile() {
       old_password: passwordOld,
       password: passwordNew,
     }
+    setLoading(true);
     const userUpdated = Object.assign(user, updated);
     await updateProfile({ user: userUpdated, avatarFile });
+    setLoading(false);
   }
 
   function handleChangeAvatar(event) {

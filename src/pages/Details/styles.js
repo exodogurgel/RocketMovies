@@ -67,6 +67,7 @@ export const AuthorInfo = styled.div`
     width: 18px;
     height: 18px;
     border-radius: 50%;
+    object-fit: cover;
   }
 
   svg {
